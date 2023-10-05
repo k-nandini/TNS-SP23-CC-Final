@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Let's Split</title>
+</head>
+    <body class="text-center">
+        <!-- Header - Menu -->
+        <header class="p-3 text-bg-dark">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                      <li><a href="index.html" class="nav-link px-2 text-white">Home</a></li>
+                      <li><a href="app.html" class="nav-link px-2 text-white">Quiz</a></li>
+                    </ul>
+    
+                    <div class="text-end">
+                      <button onclick="location.href='javascript:Logout(0);'" type="button" class="btn btn-outline-light me-2">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Quiz -->
+        <div class="container">
+            <div id="game" class="list-group list-group-checkable d-grid gap-2 border-0 w-auto">
+                <form>
+                    
+                    <button type="button"  id="save_btn" class="w-100 btn btn-lg btn-warning">Restart Quiz</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            
+                <div class="col-md-4 d-flex align-items-center">
+                    <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Nandini Kumar, New School</span>
+                </div>
+                
+                <!-- BUG - Link Icons and Fix Color/Test it -->
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+                </ul>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <script src="js/script.js"></script>
+        <script src="js/game.js"></script>
+        <script>
+            let name=localStorage.getItem('name')?localStorage.getItem('name'):''
+            console.log(name);
+            
+            if(name==''){
+                alert('Please sign in or sign up first!');
+                window.location.href="login.html";
+            }
+            
+            function Logout(){
+                localStorage.removeItem('name');
+                  localStorage.removeItem('email');
+                  window.location.href="login.html";
+            }
+        </script>
+
+    </body>
+</html>
